@@ -10,8 +10,14 @@ export const Header: React.FC = () => {
             Gramajo<span className="text-emerald-600 underline decoration-2 underline-offset-4">Lucas</span>
           </span>
         </div>
-        <div className="hidden sm:block text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em]">
-          Logística Profesional
+        <div className="flex items-center space-x-4">
+          <div className="hidden xs:flex items-center bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-100">
+            <span className="flex h-2 w-2 rounded-full bg-emerald-500 mr-2 animate-pulse"></span>
+            <span className="text-[10px] font-bold text-emerald-700 uppercase tracking-wider">En línea</span>
+          </div>
+          <div className="hidden sm:block text-[10px] font-bold text-slate-400 uppercase tracking-[0.2em]">
+            Logística Profesional
+          </div>
         </div>
       </div>
     </header>
