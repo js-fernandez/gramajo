@@ -28,11 +28,17 @@ export const SERVICES = [
     title: "Mini Flete",
     description: "Traslado de mercadería mediana y bultos pesados con el mayor cuidado y puntualidad.",
     icon: "🚚"
+  },
+  {
+    title: "Resolver trámite complejo",
+    description: "Gestión ante organismos públicos, bancos y logística de documentos confidenciales con absoluta reserva.",
+    icon: "🏛️",
+    special: true
   }
 ];
 
 export const TRUST_INDICATORS = [
-  { label: "Cobertura Total", value: "AMBA & GBA", icon: "📍" },
-  { label: "Tiempo de Respuesta", value: "Inmediato", icon: "⏱️" },
-  { label: "Seguridad", value: "Garantizada", icon: "🛡️" }
+  { label: "AMBA & GBA", value: "Cobertura Total", icon: "📍" },
+  { label: "Inmediato", value: "Tiempo de Respuesta", icon: "⏱️" },
+  { label: "Garantizada", value: "Seguridad", icon: "🛡️" }
 ];

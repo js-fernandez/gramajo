@@ -1,37 +1,29 @@
 
 import React from 'react';
 
-const ZONAS = ["CABA", "Zona Norte", "Zona Sur", "Zona Oeste", "La Plata", "Pilar", "Escobar", "Tigre", "Quilmes", "Avellaneda", "San Isidro"];
-
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-white border-t border-slate-100 pt-16 pb-24 px-6">
+    <footer className="bg-white border-t border-slate-100 py-8 px-6">
       <div className="max-w-4xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
-          <div className="text-center md:text-left">
-            <div className="text-2xl font-black mb-2 tracking-tighter">
+        <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-6">
+          <div className="flex flex-col items-center md:items-start">
+            <div className="text-2xl font-black tracking-tighter mb-1">
               Gramajo<span className="text-emerald-600">Lucas</span>
             </div>
-            <p className="text-slate-500 text-sm leading-relaxed max-w-xs mx-auto md:mx-0">
-              Soluciones logísticas de última milla y gestiones administrativas con presencia en toda el área metropolitana.
-            </p>
+            <p className="text-[9px] text-slate-400 font-bold uppercase tracking-[0.3em]">Logística & Mensajería Profesional</p>
           </div>
           
-          <div className="text-center md:text-left">
-            <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] mb-4">Zonas de Cobertura</h4>
-            <div className="flex flex-wrap justify-center md:justify-start gap-2">
-              {ZONAS.map((zona) => (
-                <span key={zona} className="px-3 py-1 bg-slate-50 text-slate-600 text-[10px] font-bold rounded-full border border-slate-100">
-                  {zona}
-                </span>
-              ))}
+          <div className="flex flex-col items-center md:items-end">
+            <div className="px-4 py-2 rounded-xl bg-slate-50 border border-slate-100 text-[11px] font-bold text-slate-600 flex items-center">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-2 animate-pulse"></span>
+              Operativa: Lun a Vie • 08 a 20 hs
             </div>
           </div>
         </div>
 
-        <div className="pt-8 border-t border-slate-50 text-center">
-          <div className="text-slate-300 text-[10px] font-bold uppercase tracking-widest">
-            &copy; {new Date().getFullYear()} Gramajo Lucas Logística • Buenos Aires, Argentina
+        <div className="mt-8 pt-6 border-t border-slate-50 text-center">
+          <div className="text-slate-300 text-[9px] font-bold uppercase tracking-[0.4em]">
+            &copy; {new Date().getFullYear()} GL Logística • Buenos Aires, Argentina
           </div>
         </div>
       </div>
