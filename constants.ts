@@ -8,6 +8,40 @@ export const getServiceLink = (serviceName: string) => {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 };
 
+/** 
+ * POOL DE IMÁGENES PARA EL SHOWCASE
+ * Estas imágenes se reparten automáticamente en las 3 categorías (Equipo, Flota, Organización).
+ * Se integran las imágenes de i.ibb.co y las de prueba proporcionadas.
+ */
+const RAW_IMAGES = [
+  "https://i.ibb.co/m5BLtQj1/3.jpg",
+  "https://i.ibb.co/ymPRSMDS/asd.jpg",
+  "https://i.ibb.co/6031nv5k/2.jpg",
+  "https://i.ibb.co/LX2mq8GF/4.jpg",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiLawVqyqyxozoHxw1NPmLTfKant9cPTUZBQ&s",
+  "https://thelogisticsworld.com/wp-content/uploads/2021/12/servicios-paqueteria.jpg",
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRg8B-M5FQBu2Z1CQyLURnnMg0NkZFpulTS3A&s",
+  "https://images.unsplash.com/photo-1606185214007-493ce72b29d0?q=80&w=1000&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1566576721346-d4a3b4eaad5b?q=80&w=1000&auto=format&fit=crop",
+  "https://images.unsplash.com/photo-1590650153855-d9e808231d41?q=80&w=1000&auto=format&fit=crop"
+];
+
+export interface ImageItem {
+  url: string;
+  cat: "team" | "transit" | "logistics";
+}
+
+const generateImagePool = (): ImageItem[] => {
+  const categories: ("team" | "transit" | "logistics")[] = ["team", "transit", "logistics"];
+  
+  return RAW_IMAGES.map((url, index) => ({
+    url,
+    cat: categories[index % categories.length]
+  }));
+};
+
+export const IMAGE_POOL = generateImagePool();
+
 export const SERVICES = [
   {
     title: "Mensajería y Paquetería",
