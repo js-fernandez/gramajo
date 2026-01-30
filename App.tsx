@@ -18,30 +18,27 @@ const App: React.FC = () => {
       <main className="flex-grow">
         <Hero />
         
-        {/* Trust bar immediately after Hero to validate legitimacy */}
-        <div className="bg-white py-8 -mt-10 relative z-20">
+        {/* Trust bar: Fondo blanco para contraste inmediato */}
+        <div className="bg-white py-12 -mt-12 relative z-20 border-b border-slate-50">
           <div className="max-w-6xl mx-auto px-6">
             <Trust />
           </div>
         </div>
 
-        {/* Services first to capture intent and solve the user's problem */}
-        <div id="servicios" className="py-24 bg-[#f8fafc] border-y border-slate-100">
+        {/* Bloque Operativo Unificado: Mismo fondo en Services y Showcase */}
+        <div id="servicios" className="py-24 md:py-32 bg-[#f8fafc]">
           <div className="max-w-6xl mx-auto px-6">
             <Services />
           </div>
         </div>
         
-        {/* Process explains "How" to lower the barrier of contact */}
         <Process />
 
-        {/* Showcase provides visual proof and builds desire via Bento Grid */}
         <div id="trayectoria">
           <OperationalShowcase />
         </div>
 
-        {/* FAQ handles final objections before the bottom of the page */}
-        <div id="faq" className="py-32 bg-white">
+        <div id="faq" className="py-20 md:py-32 bg-white">
           <div className="max-w-6xl mx-auto px-6">
             <FAQ />
           </div>

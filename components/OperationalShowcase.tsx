@@ -23,72 +23,48 @@ export const OperationalShowcase: React.FC = () => {
   }, [categories]);
 
   return (
-    <section className="py-24 bg-[#fcfdfd] relative overflow-hidden">
-      {/* Background abstract element */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-slate-50/50 -skew-x-12 translate-x-1/2 pointer-events-none"></div>
-
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <header className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+    <section className="py-24 md:py-32 bg-[#f8fafc] relative overflow-hidden">
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
+        <header className="flex flex-col md:flex-row md:items-end justify-between mb-16 md:mb-24 gap-8">
           <div className="max-w-2xl">
-            <div className="flex items-center gap-3 mb-6">
-              <span className="flex h-2 w-2 relative">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-              </span>
-              <span className="text-emerald-600 text-[11px] font-black uppercase tracking-[0.4em]">Infraestructura en Movimiento</span>
-            </div>
-            <h2 className="text-4xl md:text-6xl font-black text-slate-900 leading-[0.9] tracking-tighter italic">
-              El motor de tus <br/>
-              <span className="text-slate-300 not-italic">compromisos diarios.</span>
+            <span className="text-emerald-600 text-[11px] font-black uppercase tracking-[0.5em] block mb-5">Evidencia Operativa</span>
+            <h2 className="text-5xl md:text-7xl font-black text-slate-900 leading-[0.85] tracking-tighter italic">
+              Infraestructura <br/>
+              <span className="text-slate-300 not-italic">en tiempo real.</span>
             </h2>
           </div>
           <div className="max-w-xs">
-            <p className="text-slate-500 font-bold text-sm leading-relaxed border-l-2 border-slate-100 pl-6">
-              Visualizá nuestra operativa real. Un sistema diseñado para la precisión donde cada movimiento cuenta.
+            <p className="text-slate-500 font-bold text-sm md:text-base leading-relaxed border-l-2 border-slate-100 pl-6">
+              Visualización completa de nuestra capacidad instalada. Sin recortes, transparencia total.
             </p>
           </div>
         </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[750px]">
-          {/* Slot Principal: El factor humano */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 h-auto md:h-[900px]">
           <EditorialTile 
             items={categories.TEAM} 
             currentIndex={indices.team} 
-            className="md:col-span-7 md:row-span-2"
+            className="md:col-span-7 h-[500px] md:h-full"
             title="Capital Humano"
-            subtitle="Expertos en resolución"
+            subtitle="Nuestra fuerza principal"
           />
           
-          {/* Slot Superior: La velocidad */}
-          <EditorialTile 
-            items={categories.TRANSIT} 
-            currentIndex={indices.transit} 
-            className="md:col-span-5 md:row-span-1"
-            title="Flota Activa"
-            subtitle="Conexión total AMBA"
-          />
-
-          {/* Slot Inferior: El orden */}
-          <EditorialTile 
-            items={categories.LOGISTICS} 
-            currentIndex={indices.logistics} 
-            className="md:col-span-5 md:row-span-1"
-            title="Estructura"
-            subtitle="Orden bajo presión"
-          />
-        </div>
-
-        {/* Floating Metrics Footer */}
-        <div className="mt-12 flex flex-wrap gap-8 items-center justify-center md:justify-start px-2">
-           <div className="flex items-center gap-3">
-              <span className="text-slate-900 font-black text-2xl italic tracking-tighter">99.8%</span>
-              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-none">Efectividad<br/>Operativa</span>
-           </div>
-           <div className="h-8 w-px bg-slate-200 hidden md:block"></div>
-           <div className="flex items-center gap-3">
-              <span className="text-slate-900 font-black text-2xl italic tracking-tighter">+100</span>
-              <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-none">Gestiones<br/>Diarias</span>
-           </div>
+          <div className="md:col-span-5 grid grid-cols-1 gap-6">
+            <EditorialTile 
+              items={categories.TRANSIT} 
+              currentIndex={indices.transit} 
+              className="h-[400px] md:h-full"
+              title="Flota Activa"
+              subtitle="Cobertura AMBA"
+            />
+            <EditorialTile 
+              items={categories.LOGISTICS} 
+              currentIndex={indices.logistics} 
+              className="h-[400px] md:h-full"
+              title="Operativa"
+              subtitle="Orden y Gestión"
+            />
+          </div>
         </div>
       </div>
     </section>
@@ -107,40 +83,46 @@ const EditorialTile: React.FC<EditorialTileProps> = ({ items, currentIndex, clas
   if (items.length === 0) return null;
   
   return (
-    <div className={`group relative rounded-[2.5rem] overflow-hidden bg-[#0a0f1c] border border-slate-200/10 shadow-2xl transition-all duration-700 flex flex-col ${className}`}>
-      
-      {/* Visual Canvas - Ajuste íntegro de imagen */}
-      <div className="relative flex-grow flex items-center justify-center p-8 pb-32 overflow-hidden">
+    <div className={`group relative rounded-[3rem] overflow-hidden bg-[#020617] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.3)] transition-all duration-1000 flex flex-col ${className}`}>
+      <div className="absolute inset-0 z-0">
         {items.map((img, i) => {
           const isActive = i === (currentIndex % items.length);
           return (
-            <div key={img.url} className={`absolute inset-0 p-8 flex items-center justify-center transition-all duration-[1500ms] ease-out ${
-              isActive ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'
-            }`}>
-              {/* Sutil resplandor interno para dar profundidad */}
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.05)_0%,transparent_70%)] opacity-50"></div>
-              
+            <div 
+              key={img.url} 
+              className={`absolute inset-0 transition-all duration-[1500ms] ease-in-out ${
+                isActive ? 'opacity-100' : 'opacity-0 pointer-events-none'
+              }`}
+            >
               <img 
                 src={img.url} 
-                alt={title}
-                className="max-w-full max-h-full object-contain rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/5 transition-transform duration-[10s] group-hover:scale-[1.03]"
+                className="absolute inset-0 w-full h-full object-cover blur-3xl opacity-40 scale-110"
+                alt="background blur"
               />
+              <div className="absolute inset-0 p-8 md:p-12 pb-36 flex items-center justify-center">
+                <img 
+                  src={img.url} 
+                  alt={title}
+                  className={`max-w-full max-h-full object-contain rounded-xl shadow-[0_20px_60px_rgba(0,0,0,0.5)] transition-transform duration-[8000ms] ease-out ${
+                    isActive ? 'scale-105' : 'scale-100'
+                  }`}
+                />
+              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-90"></div>
             </div>
           );
         })}
       </div>
-
-      {/* Pie Editorial Integrado */}
-      <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
-        <div className="bg-white/95 backdrop-blur-xl p-6 rounded-[2rem] border border-white/20 shadow-xl group-hover:-translate-y-2 transition-transform duration-500">
-           <div className="text-center">
-              <h4 className="text-slate-900 text-lg md:text-xl font-black tracking-tighter leading-none italic mb-1 uppercase">
-                {title}
-              </h4>
-              <p className="text-emerald-600 text-[9px] font-black uppercase tracking-[0.2em]">
-                {subtitle}
-              </p>
-           </div>
+      <div className="absolute bottom-6 left-6 right-6 z-20">
+        <div className="bg-white/5 backdrop-blur-[40px] border border-white/10 p-8 rounded-[2.5rem] shadow-2xl transition-all duration-500 group-hover:bg-white/10 group-hover:-translate-y-2 group-hover:border-white/20">
+          <div>
+            <h4 className="text-white text-xl md:text-2xl font-[900] tracking-tighter leading-none italic uppercase mb-1">
+              {title}
+            </h4>
+            <p className="text-emerald-400 text-[10px] font-black uppercase tracking-[0.4em]">
+              {subtitle}
+            </p>
+          </div>
         </div>
       </div>
     </div>
