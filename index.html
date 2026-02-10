@@ -4,11 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gramajo Lucas | Logística y Mensajería Profesional</title>
+    <title>Gramajo Lucas | Logística y Mensajería Profesional AMBA</title>
+    <meta name="description" content="Servicios de logística y mensajería en AMBA y GBA. Envíos Flex, trámites y paquetería con confianza y rapidez.">
+    <meta name="keywords" content="mensajería, logística, amba, gba, envíos flex, cadetería, trámites afip, fletes">
+    <link rel="canonical" href="https://gramajolucas.com.ar" />
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Gramajo Lucas | Logística Profesional AMBA">
+    <meta property="og:description" content="Envíos en el día y gestión de trámites complejos con seguridad garantizada.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&auto=format&fit=crop">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- SEO JSON-LD Local Business -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Gramajo Lucas Logística",
+      "image": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d",
+      "description": "Servicios de mensajería y logística profesional en el área metropolitana de Buenos Aires.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Buenos Aires",
+        "addressCountry": "AR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -34.6037,
+        "longitude": -58.3816
+      },
+      "url": "https://gramajolucas.com.ar",
+      "telephone": "+5491125196436"
+    }
+    </script>
+
     <style>
         :root {
             --brand-emerald: #10b981;
@@ -20,15 +54,14 @@
             -moz-osx-font-smoothing: grayscale;
         }
         
-        /* Noise Overlay for premium feel */
         body::before {
             content: "";
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            opacity: 0.03;
+            opacity: 0.02;
             z-index: 9999;
             pointer-events: none;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3column%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         }
 
         .whatsapp-gradient {
@@ -44,22 +77,13 @@
             opacity: 1;
             transform: translateY(0);
         }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
-        .animate-float {
-            animation: float 6s ease-in-out infinite;
-        }
     </style>
 <script type="importmap">
 {
   "imports": {
-    "react": "https://esm.sh/react@^19.2.3",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "react/": "https://esm.sh/react@^19.2.3/"
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4"
   }
 }
 </script>
@@ -77,13 +101,17 @@
             });
         }, observerOptions);
 
-        window.addEventListener('DOMContentLoaded', () => {
+        function initReveal() {
             document.querySelectorAll('section, .reveal-item').forEach(el => {
-                el.classList.add('reveal');
-                observer.observe(el);
+                if (!el.classList.contains('reveal')) {
+                    el.classList.add('reveal');
+                    observer.observe(el);
+                }
             });
-        });
+        }
+        window.addEventListener('DOMContentLoaded', initReveal);
+        setInterval(initReveal, 1500);
     </script>
-<script type="module" src="/index.tsx"></script>
+    <script type="module" src="/index.tsx"></script>
 </body>
 </html>
